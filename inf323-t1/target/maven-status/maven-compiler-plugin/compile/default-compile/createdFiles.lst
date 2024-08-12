@@ -1,0 +1,5 @@
+esoft\book\model\Author.class
+esoft\book\model\Book.class
+esoft\book\model\Book$Item.class
+esoft\book\model\Backing.class
+esoft\book\model\Subject.class
