@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Book.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">inf323-tarefa1</a> &gt; <a href="index.source.html" class="el_package">esoft.book.model</a> &gt; <span class="el_source">Book.java</span></div><h1>Book.java</h1><pre class="source lang-java linenums">package esoft.book.model;
+
+import esoft.com.util.Validator;
+
+import java.text.DecimalFormat;
+import java.util.Objects;
+import java.util.Date;
+
+
+public class Book {
+    private final int id;
+    private final String title;
+    private Date pubDate;
+    private String publisher;
+    public String subject;
+    private String desc;
+    private String thumbnail;
+    private String image;
+    private double srp;
+    private Date avail;
+    private String isbn;
+    private int page;
+    public String backing;
+    private double dimensions;
+    public String author;
+
+    public class Item {
+        private int id;
+        private String title;
+
+<span class="fc" id="L31">        public Item (int id, String title) {</span>
+<span class="fc" id="L32">            this.id = id;</span>
+<span class="fc" id="L33">            this.title = title;</span>
+<span class="fc" id="L34">        }</span>
+
+        public int getId(){
+<span class="fc" id="L37">            return id;</span>
+        }
+
+        public String getTitle(){
+<span class="fc" id="L41">            return title;</span>
+        }
+    }
+
+    private final Item item;
+
+    public Book (
+            int id,
+            String title,
+            Date pubDate,
+            String publisher,
+            String subject,
+            String desc,
+            String thumbnail,
+            String image,
+            double srp,
+            Date avail,
+            String isbn,
+            int page,
+            String backing,
+            double dimensions,
+<span class="fc" id="L62">            String author) {</span>
+
+<span class="fc" id="L64">            Item item = new Item(id, title);</span>
+
+<span class="fc" id="L66">            Validator.validateNotNull(pubDate, &quot;A data não pode ser nula&quot;);</span>
+<span class="fc" id="L67">            this.pubDate = pubDate;</span>
+
+<span class="fc" id="L69">            Validator.validateNotNull(avail, &quot;A data de disponibilidade não pode ser nulo&quot;);</span>
+<span class="fc" id="L70">            this.avail = avail;</span>
+
+<span class="fc" id="L72">            Validator.validateNotNull(subject, &quot;O assunto não pode ser nulo&quot;);</span>
+<span class="fc" id="L73">            this.subject = subject;</span>
+
+<span class="fc" id="L75">            Validator.validateNotNull(backing, &quot;O tipo de encadernação não pode ser nula&quot;);</span>
+<span class="fc" id="L76">            this.backing = backing;</span>
+
+<span class="fc" id="L78">            Validator.validateNotNull(author, &quot;O autor não pode ser nulo&quot;);</span>
+<span class="fc" id="L79">            this.author = author;</span>
+
+<span class="fc" id="L81">            this.id = id;</span>
+<span class="fc" id="L82">            this.title = title;</span>
+<span class="fc" id="L83">            this.item = new Item(id,title);</span>
+
+<span class="fc" id="L85">            setPublisher(publisher);</span>
+<span class="fc" id="L86">            setDesc(desc);</span>
+<span class="fc" id="L87">            setThumbnail(thumbnail);</span>
+<span class="fc" id="L88">            setImage(image);</span>
+<span class="fc" id="L89">            setSrp(srp);</span>
+<span class="fc" id="L90">            setIsbn(isbn);</span>
+<span class="fc" id="L91">            setPage(page);</span>
+<span class="fc" id="L92">            setDimensions(dimensions);</span>
+<span class="fc" id="L93">    }</span>
+
+        private static final String GENERAL_STRING_REGEX = &quot;^[\\p{L} ,.&amp;'-]+$&quot;;
+        private static final int PUBLISHER_MAX_LENGTH = 100;
+        private static final int DESC_MAX_LENGTH = 1000;
+        private static final int THUMBNAIL_MAX_LENGTH = 200;
+        private static final int IMAGE_MAX_LENGTH = 200;
+        private static final int DIMENSIONS_MAX_LENGTH = 50;
+        private static final String ISBN_REGEX = &quot;(^\\d{9}[\\dX]$)|(^\\d{13}$)&quot;;
+
+        public void setPublisher(String publisher) {
+<span class="fc bfc" id="L104" title="All 2 branches covered.">            if (!publisher.matches(GENERAL_STRING_REGEX)) {</span>
+<span class="fc" id="L105">                throw new IllegalArgumentException(&quot;O nome do editor contém caracteres inválidos&quot;);</span>
+            }
+<span class="fc bfc" id="L107" title="All 2 branches covered.">            if (publisher.length() &gt; (PUBLISHER_MAX_LENGTH)) {</span>
+<span class="fc" id="L108">                throw new IllegalArgumentException(&quot;O nome do editor deve ter no máximo &quot; + PUBLISHER_MAX_LENGTH + &quot; caracteres&quot;);</span>
+            }
+<span class="fc" id="L110">            this.publisher = publisher;</span>
+<span class="fc" id="L111">        }</span>
+
+        public void setDesc(String desc){
+<span class="fc bfc" id="L114" title="All 2 branches covered.">            if (desc.length() &gt; DESC_MAX_LENGTH) {</span>
+<span class="fc" id="L115">                throw new IllegalArgumentException(&quot;O desconto deve ter no máximo &quot; + DESC_MAX_LENGTH + &quot; caracteres&quot;);</span>
+            }
+<span class="fc" id="L117">            this.desc = desc;</span>
+<span class="fc" id="L118">        }</span>
+
+        public void setThumbnail(String thumbnail){
+<span class="fc bfc" id="L121" title="All 2 branches covered.">            if (thumbnail.length() &gt; THUMBNAIL_MAX_LENGTH) {</span>
+<span class="fc" id="L122">                throw new IllegalArgumentException(&quot;A URL deve ter no máximo &quot; + THUMBNAIL_MAX_LENGTH + &quot; caracteres&quot;);</span>
+            }
+<span class="fc" id="L124">            this.thumbnail = thumbnail;</span>
+<span class="fc" id="L125">        }</span>
+
+        public void setImage(String image){
+<span class="fc bfc" id="L128" title="All 2 branches covered.">            if (image.length() &gt; IMAGE_MAX_LENGTH) {</span>
+<span class="fc" id="L129">            throw new IllegalArgumentException(&quot;A URL deve ter no máximo &quot; + IMAGE_MAX_LENGTH + &quot; caracteres&quot;);</span>
+            }
+<span class="fc" id="L131">            this.image = image;</span>
+<span class="fc" id="L132">        }</span>
+
+        public void setDimensions(Double dimensions){
+<span class="fc" id="L135">            DecimalFormat df = new DecimalFormat(&quot;0.###############################&quot;);</span>
+<span class="fc" id="L136">            String dimensionsStr = df.format(dimensions);</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">            if (dimensionsStr.length() &gt; DIMENSIONS_MAX_LENGTH) {</span>
+<span class="fc" id="L138">            throw new IllegalArgumentException(&quot;A dimensão deve ter no máximo &quot; + DIMENSIONS_MAX_LENGTH + &quot; caracteres&quot;);</span>
+            }
+<span class="fc" id="L140">            this.dimensions = dimensions;</span>
+<span class="fc" id="L141">        }</span>
+
+        public void setIsbn(String isbn){
+<span class="fc bfc" id="L144" title="All 2 branches covered.">            if (!isbn.matches(ISBN_REGEX)) {</span>
+<span class="fc" id="L145">                throw new IllegalArgumentException(&quot;O ISBN contém formato incorreto&quot;);</span>
+            }
+<span class="fc" id="L147">            this.isbn = isbn;</span>
+<span class="fc" id="L148">        }</span>
+
+        //private static void validatePositive (double number) {
+        //    if (number &lt;= 0) {
+        //        throw new IllegalArgumentException(&quot;O valor deve ser positivo.&quot;);
+        //    }
+        //}
+
+        public void setSrp (double srp) {
+<span class="fc" id="L157">            Validator.validatePositive(srp, &quot;O preço sugerido deve ser positivo&quot;);</span>
+<span class="fc" id="L158">            this.srp = srp;</span>
+<span class="fc" id="L159">        }</span>
+
+        public void setPage (int page) {
+<span class="fc" id="L162">            Validator.validatePositive(page, &quot;O número de páginas deve ser positivo&quot;);</span>
+<span class="fc" id="L163">            this.page = page;</span>
+<span class="fc" id="L164">        }</span>
+        public static void main (String [] args){
+<span class="nc" id="L166">    }</span>
+
+    public int getItemId(){
+<span class="fc" id="L169">            return item.getId();</span>
+    }
+
+    public String getItemTitle(){
+<span class="fc" id="L173">        return item.getTitle();</span>
+    }
+
+    public Date getPubDate(){
+<span class="fc" id="L177">        return pubDate;</span>
+    }
+
+    public String getPublisher(){
+<span class="fc" id="L181">        return publisher;</span>
+    }
+
+    public String getSubject() {
+<span class="fc" id="L185">        return subject;</span>
+    }
+
+    public String getDesc(){
+<span class="fc" id="L189">        return desc;</span>
+    }
+
+    public String getThumbnail(){
+<span class="fc" id="L193">        return thumbnail;</span>
+    }
+
+    public String getImage(){
+<span class="fc" id="L197">        return image;</span>
+    }
+
+    public double getSrp(){
+<span class="fc" id="L201">        return srp;</span>
+    }
+
+    public Date getAvail(){
+<span class="fc" id="L205">        return avail;</span>
+    }
+
+    public String getIsbn(){
+<span class="fc" id="L209">        return isbn;</span>
+    }
+
+    public int getPage(){
+<span class="fc" id="L213">        return page;</span>
+    }
+
+    public String getBacking(){
+<span class="fc" id="L217">            return backing;</span>
+    }
+
+    public double getDimensions(){
+<span class="fc" id="L221">        return dimensions;</span>
+    }
+
+    public String getAuthor(){
+<span class="fc" id="L225">        return author;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,9 +1,10 @@
 package esoft.model;
 import esoft.book.model.Book;
+import esoft.com.exception.NullValueException;
 import org.junit.Test;
 import java.util.Date;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+
+import static org.junit.Assert.*;
 
 public class BookTest {
 
@@ -62,23 +63,8 @@ public class BookTest {
         double dimensions = 30.00;
         String author = "Autor";
 
-        Book book = new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author);
-
-        assertNotNull(book.getPubDate());
-        assertEquals(publisher, book.getPublisher());
-        assertEquals(subject, book.getSubject());
-        assertEquals(desc, book.getDesc());
-        assertEquals(thumbnail, book.getThumbnail());
-        assertEquals(image , book.getImage());
-        assertEquals(srp, book.getSrp(),0.01);
-        assertNotNull(book.getAvail());
-        assertEquals(isbn, book.getIsbn());
-        assertEquals(page, book.getPage());
-        assertEquals(backing, book.getBacking());
-        assertEquals(dimensions, book.getDimensions(), 0.01);
-        assertEquals(author, book.getAuthor());
-        assertEquals(id, book.getItemId());
-        assertEquals(title, book.getItemTitle());
+        assertThrows(NullValueException.class, () -> new Book(id, title, pubDate, publisher, subject, desc, thumbnail,
+                image, srp, avail, isbn, page, backing, dimensions, author));
     }
 
     @Test
@@ -99,23 +85,8 @@ public class BookTest {
         double dimensions = 30.00;
         String author = "Autor";
 
-        Book book = new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author);
-
-        assertNotNull(book.getPubDate());
-        assertEquals(publisher, book.getPublisher());
-        assertEquals(subject, book.getSubject());
-        assertEquals(desc, book.getDesc());
-        assertEquals(thumbnail, book.getThumbnail());
-        assertEquals(image , book.getImage());
-        assertEquals(srp, book.getSrp(),0.01);
-        assertNotNull(book.getAvail());
-        assertEquals(isbn, book.getIsbn());
-        assertEquals(page, book.getPage());
-        assertEquals(backing, book.getBacking());
-        assertEquals(dimensions, book.getDimensions(), 0.01);
-        assertEquals(author, book.getAuthor());
-        assertEquals(id, book.getItemId());
-        assertEquals(title, book.getItemTitle());
+        assertThrows (IllegalArgumentException.class, () -> new Book(id, title, pubDate, publisher, subject, desc,
+                thumbnail, image, srp, avail, isbn, page, backing, dimensions, author));
     }
 
     @Test
@@ -123,7 +94,8 @@ public class BookTest {
         int id = 1;
         String title = "Título";
         Date pubDate = new Date(2024,1,10);
-        String publisher = "Editorxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+        String publisher = "Editorxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" +
+                "xxxxxxxxxxxxxxxxxxx";
         String subject = "Assunto";
         String desc = "Descrição";
         String thumbnail = "http://teste.com/miniatura.jpg";
@@ -136,23 +108,7 @@ public class BookTest {
         double dimensions = 30.00;
         String author = "Autor";
 
-        Book book = new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author);
-
-        assertNotNull(book.getPubDate());
-        assertEquals(publisher, book.getPublisher());
-        assertEquals(subject, book.getSubject());
-        assertEquals(desc, book.getDesc());
-        assertEquals(thumbnail, book.getThumbnail());
-        assertEquals(image , book.getImage());
-        assertEquals(srp, book.getSrp(),0.01);
-        assertNotNull(book.getAvail());
-        assertEquals(isbn, book.getIsbn());
-        assertEquals(page, book.getPage());
-        assertEquals(backing, book.getBacking());
-        assertEquals(dimensions, book.getDimensions(), 0.01);
-        assertEquals(author, book.getAuthor());
-        assertEquals(id, book.getItemId());
-        assertEquals(title, book.getItemTitle());
+        assertThrows (IllegalArgumentException.class, () -> new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author));
     }
 
     @Test
@@ -173,23 +129,7 @@ public class BookTest {
         double dimensions = 30.00;
         String author = "Autor";
 
-        Book book = new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author);
-
-        assertNotNull(book.getPubDate());
-        assertEquals(publisher, book.getPublisher());
-        assertEquals(subject, book.getSubject());
-        assertEquals(desc, book.getDesc());
-        assertEquals(thumbnail, book.getThumbnail());
-        assertEquals(image , book.getImage());
-        assertEquals(srp, book.getSrp(),0.01);
-        assertNotNull(book.getAvail());
-        assertEquals(isbn, book.getIsbn());
-        assertEquals(page, book.getPage());
-        assertEquals(backing, book.getBacking());
-        assertEquals(dimensions, book.getDimensions(), 0.01);
-        assertEquals(author, book.getAuthor());
-        assertEquals(id, book.getItemId());
-        assertEquals(title, book.getItemTitle());
+        assertThrows(NullValueException.class, () -> new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author));
     }
 
     @Test
@@ -210,23 +150,7 @@ public class BookTest {
         double dimensions = 30.00;
         String author = "Autor";
 
-        Book book = new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author);
-
-        assertNotNull(book.getPubDate());
-        assertEquals(publisher, book.getPublisher());
-        assertEquals(subject, book.getSubject());
-        assertEquals(desc, book.getDesc());
-        assertEquals(thumbnail, book.getThumbnail());
-        assertEquals(image , book.getImage());
-        assertEquals(srp, book.getSrp(),0.01);
-        assertNotNull(book.getAvail());
-        assertEquals(isbn, book.getIsbn());
-        assertEquals(page, book.getPage());
-        assertEquals(backing, book.getBacking());
-        assertEquals(dimensions, book.getDimensions(), 0.01);
-        assertEquals(author, book.getAuthor());
-        assertEquals(id, book.getItemId());
-        assertEquals(title, book.getItemTitle());
+        assertThrows (IllegalArgumentException.class, () -> new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author));
     }
 
     @Test
@@ -247,23 +171,7 @@ public class BookTest {
         double dimensions = 30.00;
         String author = "Autor";
 
-        Book book = new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author);
-
-        assertNotNull(book.getPubDate());
-        assertEquals(publisher, book.getPublisher());
-        assertEquals(subject, book.getSubject());
-        assertEquals(desc, book.getDesc());
-        assertEquals(thumbnail, book.getThumbnail());
-        assertEquals(image , book.getImage());
-        assertEquals(srp, book.getSrp(),0.01);
-        assertNotNull(book.getAvail());
-        assertEquals(isbn, book.getIsbn());
-        assertEquals(page, book.getPage());
-        assertEquals(backing, book.getBacking());
-        assertEquals(dimensions, book.getDimensions(), 0.01);
-        assertEquals(author, book.getAuthor());
-        assertEquals(id, book.getItemId());
-        assertEquals(title, book.getItemTitle());
+        assertThrows (IllegalArgumentException.class, () -> new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author));
     }
 
     @Test
@@ -284,23 +192,7 @@ public class BookTest {
         double dimensions = 30.00;
         String author = "Autor";
 
-        Book book = new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author);
-
-        assertNotNull(book.getPubDate());
-        assertEquals(publisher, book.getPublisher());
-        assertEquals(subject, book.getSubject());
-        assertEquals(desc, book.getDesc());
-        assertEquals(thumbnail, book.getThumbnail());
-        assertEquals(image , book.getImage());
-        assertEquals(srp, book.getSrp(),0.01);
-        assertNotNull(book.getAvail());
-        assertEquals(isbn, book.getIsbn());
-        assertEquals(page, book.getPage());
-        assertEquals(backing, book.getBacking());
-        assertEquals(dimensions, book.getDimensions(), 0.01);
-        assertEquals(author, book.getAuthor());
-        assertEquals(id, book.getItemId());
-        assertEquals(title, book.getItemTitle());
+        assertThrows (IllegalArgumentException.class, () -> new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author));
     }
 
     @Test
@@ -321,23 +213,7 @@ public class BookTest {
         double dimensions = 3000000000000000000000000000000000000000000000000000.00;
         String author = "Autor";
 
-        Book book = new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author);
-
-        assertNotNull(book.getPubDate());
-        assertEquals(publisher, book.getPublisher());
-        assertEquals(subject, book.getSubject());
-        assertEquals(desc, book.getDesc());
-        assertEquals(thumbnail, book.getThumbnail());
-        assertEquals(image , book.getImage());
-        assertEquals(srp, book.getSrp(),0.01);
-        assertNotNull(book.getAvail());
-        assertEquals(isbn, book.getIsbn());
-        assertEquals(page, book.getPage());
-        assertEquals(backing, book.getBacking());
-        assertEquals(dimensions, book.getDimensions(), 0.01);
-        assertEquals(author, book.getAuthor());
-        assertEquals(id, book.getItemId());
-        assertEquals(title, book.getItemTitle());
+        assertThrows (IllegalArgumentException.class, () -> new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author));
     }
 
     @Test
@@ -358,23 +234,7 @@ public class BookTest {
         double dimensions = 30.00;
         String author = "Autor";
 
-        Book book = new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author);
-
-        assertNotNull(book.getPubDate());
-        assertEquals(publisher, book.getPublisher());
-        assertEquals(subject, book.getSubject());
-        assertEquals(desc, book.getDesc());
-        assertEquals(thumbnail, book.getThumbnail());
-        assertEquals(image , book.getImage());
-        assertEquals(srp, book.getSrp(),0.01);
-        assertNotNull(book.getAvail());
-        assertEquals(isbn, book.getIsbn());
-        assertEquals(page, book.getPage());
-        assertEquals(backing, book.getBacking());
-        assertEquals(dimensions, book.getDimensions(), 0.01);
-        assertEquals(author, book.getAuthor());
-        assertEquals(id, book.getItemId());
-        assertEquals(title, book.getItemTitle());
+        assertThrows(NullValueException.class, () -> new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author));
     }
 
     @Test
@@ -395,23 +255,7 @@ public class BookTest {
         double dimensions = 30.00;
         String author = "Autor";
 
-        Book book = new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author);
-
-        assertNotNull(book.getPubDate());
-        assertEquals(publisher, book.getPublisher());
-        assertEquals(subject, book.getSubject());
-        assertEquals(desc, book.getDesc());
-        assertEquals(thumbnail, book.getThumbnail());
-        assertEquals(image , book.getImage());
-        assertEquals(srp, book.getSrp(),0.01);
-        assertNotNull(book.getAvail());
-        assertEquals(isbn, book.getIsbn());
-        assertEquals(page, book.getPage());
-        assertEquals(backing, book.getBacking());
-        assertEquals(dimensions, book.getDimensions(), 0.01);
-        assertEquals(author, book.getAuthor());
-        assertEquals(id, book.getItemId());
-        assertEquals(title, book.getItemTitle());
+        assertThrows (IllegalArgumentException.class, () -> new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author));
     }
 
     @Test
@@ -432,23 +276,7 @@ public class BookTest {
         double dimensions = 30.00;
         String author = "Autor";
 
-        Book book = new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author);
-
-        assertNotNull(book.getPubDate());
-        assertEquals(publisher, book.getPublisher());
-        assertEquals(subject, book.getSubject());
-        assertEquals(desc, book.getDesc());
-        assertEquals(thumbnail, book.getThumbnail());
-        assertEquals(image , book.getImage());
-        assertEquals(srp, book.getSrp(),0.01);
-        assertNotNull(book.getAvail());
-        assertEquals(isbn, book.getIsbn());
-        assertEquals(page, book.getPage());
-        assertEquals(backing, book.getBacking());
-        assertEquals(dimensions, book.getDimensions(), 0.01);
-        assertEquals(author, book.getAuthor());
-        assertEquals(id, book.getItemId());
-        assertEquals(title, book.getItemTitle());
+        assertThrows (IllegalArgumentException.class, () -> new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author));
     }
 
     @Test
@@ -469,23 +297,7 @@ public class BookTest {
         double dimensions = 30.00;
         String author = "Autor";
 
-        Book book = new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author);
-
-        assertNotNull(book.getPubDate());
-        assertEquals(publisher, book.getPublisher());
-        assertEquals(subject, book.getSubject());
-        assertEquals(desc, book.getDesc());
-        assertEquals(thumbnail, book.getThumbnail());
-        assertEquals(image , book.getImage());
-        assertEquals(srp, book.getSrp(),0.01);
-        assertNotNull(book.getAvail());
-        assertEquals(isbn, book.getIsbn());
-        assertEquals(page, book.getPage());
-        assertEquals(backing, book.getBacking());
-        assertEquals(dimensions, book.getDimensions(), 0.01);
-        assertEquals(author, book.getAuthor());
-        assertEquals(id, book.getItemId());
-        assertEquals(title, book.getItemTitle());
+        assertThrows (IllegalArgumentException.class, () -> new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author));
     }
 
     @Test
@@ -506,23 +318,7 @@ public class BookTest {
         double dimensions = 30.00;
         String author = "Autor";
 
-        Book book = new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author);
-
-        assertNotNull(book.getPubDate());
-        assertEquals(publisher, book.getPublisher());
-        assertEquals(subject, book.getSubject());
-        assertEquals(desc, book.getDesc());
-        assertEquals(thumbnail, book.getThumbnail());
-        assertEquals(image , book.getImage());
-        assertEquals(srp, book.getSrp(),0.01);
-        assertNotNull(book.getAvail());
-        assertEquals(isbn, book.getIsbn());
-        assertEquals(page, book.getPage());
-        assertEquals(backing, book.getBacking());
-        assertEquals(dimensions, book.getDimensions(), 0.01);
-        assertEquals(author, book.getAuthor());
-        assertEquals(id, book.getItemId());
-        assertEquals(title, book.getItemTitle());
+        assertThrows(NullValueException.class, () -> new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author));
     }
 
     @Test
@@ -543,23 +339,7 @@ public class BookTest {
         double dimensions = 30.00;
         String author = null;
 
-        Book book = new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author);
-
-        assertNotNull(book.getPubDate());
-        assertEquals(publisher, book.getPublisher());
-        assertEquals(subject, book.getSubject());
-        assertEquals(desc, book.getDesc());
-        assertEquals(thumbnail, book.getThumbnail());
-        assertEquals(image , book.getImage());
-        assertEquals(srp, book.getSrp(),0.01);
-        assertNotNull(book.getAvail());
-        assertEquals(isbn, book.getIsbn());
-        assertEquals(page, book.getPage());
-        assertEquals(backing, book.getBacking());
-        assertEquals(dimensions, book.getDimensions(), 0.01);
-        assertEquals(author, book.getAuthor());
-        assertEquals(id, book.getItemId());
-        assertEquals(title, book.getItemTitle());
+        assertThrows(NullValueException.class, () -> new Book(id, title, pubDate, publisher, subject, desc, thumbnail, image, srp, avail, isbn, page, backing, dimensions, author));
     }
 
 }

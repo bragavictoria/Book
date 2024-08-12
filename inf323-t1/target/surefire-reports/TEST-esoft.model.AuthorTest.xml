@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="15" failures="0" name="esoft.model.AuthorTest" time="0.014" errors="0" skipped="0">
+<testsuite tests="15" failures="0" name="esoft.model.AuthorTest" time="0.01" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_202\jre\bin"/>
@@ -73,11 +73,11 @@
   <testcase classname="esoft.model.AuthorTest" name="testAuthorCreationWithNullBio" time="0"/>
   <testcase classname="esoft.model.AuthorTest" name="testAuthorCreationWithEmptyLastName" time="0"/>
   <testcase classname="esoft.model.AuthorTest" name="testAuthorCreationWithNullBirthdate" time="0"/>
-  <testcase classname="esoft.model.AuthorTest" name="testAuthorCreationWithInvalidFirstName" time="0"/>
+  <testcase classname="esoft.model.AuthorTest" name="testAuthorCreationWithInvalidFirstName" time="0.001"/>
   <testcase classname="esoft.model.AuthorTest" name="testAuthorCreationWithValidParameters" time="0"/>
   <testcase classname="esoft.model.AuthorTest" name="testAuthorCreationWithNullFirstName" time="0"/>
-  <testcase classname="esoft.model.AuthorTest" name="testAuthorFields" time="0.004"/>
-  <testcase classname="esoft.model.AuthorTest" name="testAuthorConstructorAndGetters" time="0.001"/>
+  <testcase classname="esoft.model.AuthorTest" name="testAuthorFields" time="0"/>
+  <testcase classname="esoft.model.AuthorTest" name="testAuthorConstructorAndGetters" time="0"/>
   <testcase classname="esoft.model.AuthorTest" name="testAuthorCreationWithInvalidBio" time="0"/>
   <testcase classname="esoft.model.AuthorTest" name="testAuthorCreationWithNullMiddleName" time="0"/>
 </testsuite>
